@@ -35,19 +35,13 @@ namespace ShuffleCharacters
                 return source;
             }
 
-            int repeat;
+            int repeat = 1;
+            string shuffledString = Shuffle(source);
 
-            if (source.Length == 88)
+            while (shuffledString != source)
             {
-                repeat = 28;
-            }
-            else
-            {
-                repeat = source.Length - 1;
-                if (source.Length % 2 == 0)
-                {
-                    repeat--;
-                }
+                shuffledString = Shuffle(shuffledString);
+                repeat++;
             }
 
             if (count % repeat == 0)
